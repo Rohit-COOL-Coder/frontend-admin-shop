@@ -1,6 +1,8 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import {Link, useNavigate} from "react-router-dom"
 import styled from 'styled-components'
+import { logout } from '../redux/userReducer'
 
 const Wrapper=styled.div`
 display: flex;
@@ -20,9 +22,8 @@ font-family: 'Varela Round';
 font-weight: 600;
 color: white;
 `
-const Bottom=styled.div`
-
-flex: 5;
+const Center=styled.div`
+flex: 6;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -46,13 +47,42 @@ min-width: 7em;
 width: 10em;
 opacity: 0.5;
 `
+const Bottom=styled.div`
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+const LogoutButton=styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+const Button=styled.button`
+cursor: pointer;
+padding: 10px 20px;
+font-size: 1em;
+font-weight: 600;
+opacity: 0.7;
+transition: all 0.5s ease;
+&:hover{
+  opacity: 1;
+}
+`
 function Sidebar() {
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
+  const handleLogout=(e)=>{
+  e.preventDefault()
+   dispatch(logout())
+  }
   return (
     <Wrapper>
         <Top>
             <Title>Admin</Title>
         </Top>
-        <Bottom>
+        <Center>
             <Links>
                 <Hr/>
                 <Link to="/profile"><FeatureItem>Profile</FeatureItem></Link>
@@ -70,6 +100,12 @@ function Sidebar() {
                 <Link to="/viewuser"><FeatureItem>View user</FeatureItem></Link> 
                 <Hr/>
             </Links>
+            
+        </Center>
+        <Bottom>
+        <LogoutButton>
+              <Button onClick={handleLogout}>Logout</Button>
+            </LogoutButton>
         </Bottom>
     </Wrapper>
   )
