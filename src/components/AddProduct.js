@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 const Wrapper=styled.div`
 display: flex;
 width: 100%;
-height: 100vh;
 justify-content: center;
 align-items: center;
 `
@@ -25,6 +24,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 10px;
+margin-top: 10px;
 border-radius: 5px;
 background: linear-gradient( to right ,rgb(220, 214, 247),rgb(244, 238, 255));
 box-shadow: -16px 16px 13px -12px rgba(0,0,0,0.69);
@@ -51,7 +51,7 @@ outline: none;
 const ProductButton=styled.button`
 
 width: 20em;
-margin: 30px 0px 10px 0px;
+margin: 30px 0px 0px 0px;
 border-radius: 5px;
 font-family: 'Varela Round';
 height: 2.5rem;

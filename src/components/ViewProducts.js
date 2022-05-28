@@ -9,13 +9,12 @@ const Wrapper=styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-/* height: 100vh; */
 `
 const ProductContainer=styled.div`
 border-radius: 5px;
 width: 90%;
-min-width: 50em;
-height: 100%;
+/* max-width: 70em; */
+min-width: 52em;
 background: linear-gradient( to right ,rgb(220, 214, 247),rgb(244, 238, 255));
 box-shadow: -16px 16px 13px -12px rgba(0,0,0,0.69);
 display: flex;
@@ -26,7 +25,6 @@ padding-bottom: 2em;
 `
 const Table=styled.table`
 width: 95%;
-min-width: 30rem;
 font-family: 'Varela Round';
 margin-top: 1rem;
 `
