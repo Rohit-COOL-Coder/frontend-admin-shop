@@ -8,56 +8,23 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Wrapper=styled.div`
 display: flex;
-flex-direction: column;
 width: 100%;
-`
-const Top=styled.div`
-display: flex;
-justify-content: space-around;
-flex: 1;
+height: 100vh;
+justify-content: center;
 align-items: center;
-`
-const Left=styled.div``
-const AdminPhoto=styled.img`
-width: 10vw;
-border-radius: 50%;
-`
-const Button=styled.button`
-padding: 10px 30px;
-border: none;
-color: white;
-border-radius: 5px;
-box-shadow: -16px 16px 13px -12px rgba(0,0,0,0.69);
-background: linear-gradient(to right,rgb(33, 85, 205),rgb(121, 218, 232) );
-cursor: pointer;
-font-family: 'Varela Round';
-transition: all 0.5s ease;
-cursor: pointer;
-opacity: 0.7;
-&:hover{
-  opacity: 1;
-}
 `
 const Title=styled.h3`
 font-family: 'Varela Round';
 font-size: 35px;
+opacity: 0.7;
+margin-bottom: 10px;
 `
-
-const Center=styled.div``
-const Right=styled.div``
-const Bottom=styled.div`
-display: flex;
-flex: 5;
-justify-content: center;
-`
-
 const ProductDetails=styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 30em;
-min-height: 25em;
+padding: 10px;
 border-radius: 5px;
 background: linear-gradient( to right ,rgb(220, 214, 247),rgb(244, 238, 255));
 box-shadow: -16px 16px 13px -12px rgba(0,0,0,0.69);
@@ -74,7 +41,7 @@ const Input=styled.input`
 width: 20rem;
 font-family: 'Varela Round';
 opacity: 0.5;
-padding: 2px 0px;
+padding: 5px 0px;
 margin: 0px 20px;
 font-weight: 600;
 background-color: rgb(244, 238, 255);
@@ -82,14 +49,15 @@ border: none;
 outline: none;
 `
 const ProductButton=styled.button`
-width: 12vw;
-margin-top: 10px;
-padding: 5px 10px;
-width: 10rem;
+
+width: 20em;
+margin: 30px 0px 10px 0px;
 border-radius: 5px;
 font-family: 'Varela Round';
-height: 2rem;
+height: 2.5rem;
 color: white;
+font-size: 1em;
+font-weight: 600;
 box-shadow: -16px 16px 13px -12px rgba(0,0,0,0.69);;
 background: linear-gradient(to right, rgb(66, 72, 116) , rgb(166, 177, 225));
 border: none;
@@ -171,20 +139,12 @@ uploadTask.on('state_changed',
   // },[currentProduct.isSuccess])
   return (
     <Wrapper>
-      <Top>
-        <Left>
-          <AdminPhoto src={img}></AdminPhoto>
-        </Left>
-        <Center>
-          <Title>Add Products</Title>
-        </Center>
-        <Right>
-          <Button>Logout</Button>
-        </Right>
-      </Top>
-      <Bottom>
         <ProductDetails>
-            
+
+        <ProductItem>
+               <Title>Add Products</Title>
+          </ProductItem>
+
           <ProductItem>
             <ProductTitle>Product Name</ProductTitle>
             <Input type="text" name="title" onChange={handleProduct}/>
@@ -239,9 +199,7 @@ uploadTask.on('state_changed',
           <ProductItem>
             <ProductButton onClick={handleSubmit}>Submit</ProductButton>
           </ProductItem>
-
         </ProductDetails>
-      </Bottom>
     </Wrapper>
   )
 }
